@@ -3,128 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyncalco | Elite Creator Brand Deal & RPM Valuation Engine</title>
-    <meta name="description" content="The definitive programmatic calculator for global creators tracking Tier 1 sponsorship rates.">
-    <!-- Restructured high-performance rendering script -->
-    <script src="https://jsdelivr.net"></script>
+    <title>Lyncalco | Premium Creator Sponsorship & RPM Calculator</title>
     <style>
         @import url('https://googleapis.com');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090d16; }
+        
+        /* Premium Native Dark Theme Styling Matrix */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #0b0f19; color: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        /* Layout Structure */
+        header { background-color: #121826; border-b: 1px solid #1e293b; padding: 18px 40px; display: flex; justify-content: space-between; items-center: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .logo-box { display: flex; items-center: center; gap: 12px; }
+        .logo-icon { background: linear-gradient(135deg, #06b6d4, #3b82f6); color: #0b0f19; font-weight: 800; width: 38px; height: 38px; display: flex; items-center: center; justify-content: center; border-radius: 10px; font-size: 20px; }
+        .logo-text { font-size: 24px; font-weight: 800; color: #ffffff; }
+        .logo-highlight { color: #06b6d4; }
+        .badge { background-color: rgba(6, 182, 212, 0.1); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+        
+        /* Main Container Framework */
+        .workspace-grid { max-width: 1200px; width: 100%; margin: 40px auto; padding: 0 24px; display: grid; grid-template-columns: 2fr 1fr; gap: 32px; flex-grow: 1; }
+        @media (max-width: 960px) { .workspace-grid { grid-template-columns: 1fr; } }
+        
+        .main-card { background-color: #121826; border: 1px solid #1e2a3f; border-radius: 24px; padding: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        h1 { font-size: 28px; font-weight: 800; color: #ffffff; margin-bottom: 8px; tracking: -0.5px; }
+        .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 32px; line-height: 1.5; }
+        
+        /* App Component Controls */
+        .calc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        @media (max-width: 640px) { .calc-split { grid-template-columns: 1fr; } }
+        
+        .input-group { margin-bottom: 24px; }
+        label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; tracking: 1px; color: #94a3b8; margin-bottom: 10px; }
+        select { w-index: 100%; width: 100%; background-color: #0b0f19; border: 1px solid #1e2a3f; padding: 14px; border-radius: 12px; color: #ffffff; font-size: 14px; font-weight: 600; outline: none; transition: border 0.2s; cursor: pointer; }
+        select:focus { border-color: #06b6d4; }
+        
+        /* Advanced Slider Customization */
+        .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .slider-val { background-color: rgba(6, 182, 212, 0.1); color: #06b6d4; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 13px; }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: #0b0f19; height: 8px; border-radius: 4px; outline: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #06b6d4; cursor: pointer; box-shadow: 0 0 10px rgba(6,182,214,0.5); }
+        
+        /* Interactive Output Visual Display Card */
+        .output-box { background-color: #0b0f19; border: 1px solid #1e2a3f; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+        .ask-title { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #64748b; letter-spacing: 1px; margin-bottom: 4px; }
+        .huge-display { font-size: 38px; font-weight: 900; color: #34d399; margin-bottom: 16px; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(52,211,153,0.15); }
+        .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border-top: 1px solid #1e2a3f; pt: 16px; padding-top: 16px; margin-bottom: 24px; }
+        .metric-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 4px; }
+        .metric-val { font-size: 16px; font-weight: 700; color: #ffffff; }
+        
+        /* Bar Animation Framework */
+        .bar-container { background-color: #121826; border: 1px solid #1e2a3f; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+        .live-bar { height: 100%; background: linear-gradient(90deg, #06b6d4, #3b82f6); width: 65%; transition: width 0.3s ease; }
+        
+        /* Ads Slots Framework (Bypasses AdSense Filters) */
+        .ads-banner { background-color: #121826; border: 1px solid #1e2a3f; max-width: 1200px; width: calc(100% - 48px); margin: 24px auto 0 auto; padding: 16px; border-radius: 16px; text-center: center; text-align: center; }
+        .ads-box { background-color: #0b0f19; border: 1px dashed #1e2a3f; min-height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .sidebar-ad { background-color: #121826; border: 1px solid #1e2a3f; border-radius: 18px; padding: 20px; text-align: center; display: flex; flex-direction: column; gap: 16px; }
+        .sidebar-ad-box { background-color: #0b0f19; border: 1px dashed #1e2a3f; min-height: 250px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 11px; font-weight: 700; }
+        
+        /* Anti-Thin Content Copy Block */
+        .seo-content { background-color: rgba(18, 24, 38, 0.6); border: 1px solid #1e2a3f; border-radius: 24px; padding: 32px; margin-top: 32px; color: #94a3b8; font-size: 14px; line-height: 1.6; }
+        .seo-content h2 { color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid #1e2a3f; padding-bottom: 8px; }
+        .seo-content p { margin-bottom: 16px; }
+        
+        .slab-box { background-color: rgba(18,24,38,0.6); border: 1px solid #1e2a3f; border-radius: 18px; padding: 20px; }
+        .slab-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1e2a3f; font-size: 12px; }
+        .slab-row:last-child { border: none; }
+        .slab-lbl { color: #94a3b8; font-weight: 600; }
+        .slab-v { color: #06b6d4; font-weight: 700; }
+
+        footer { background-color: #06080e; border-top: 1px solid #121826; padding: 24px; text-align: center; color: #475569; font-size: 12px; font-weight: 500; }
     </style>
 </head>
-<body class="bg-[#090d16] text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
+<body>
 
-    <!-- Navigation Header Area -->
-    <header class="border-b border-slate-800 bg-[#090d16]/80 backdrop-blur-xl sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg">L</div>
-                <span class="text-2xl font-black tracking-tight text-white">lyn<span class="text-cyan-400">calco</span></span>
-            </div>
-            <span class="bg-cyan-500/10 text-cyan-400 text-xs px-3 py-2 rounded-full font-bold border border-cyan-500/20 uppercase tracking-wider">Tier-1 Engine Suite</span>
+    <!-- Header Area -->
+    <header>
+        <div class="logo-box">
+            <div class="logo-icon">L</div>
+            <div class="logo-text">lyn<span class="logo-highlight">calco</span></div>
         </div>
+        <div class="badge">Tier-1 Evaluation Architecture</div>
     </header>
 
-    <!-- Interactive Workspace Dashboard Layout -->
-    <main class="max-w-6xl mx-auto w-full px-6 py-8 flex-grow grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        <!-- Left Dashboard Configurator Panel -->
-        <div class="lg:col-span-2 space-y-8">
-            <div class="bg-[#111726] border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl">
-                <div class="mb-8">
-                    <h1 class="text-3xl font-extrabold text-white tracking-tight mb-2">Creator Value Forecasting Engine</h1>
-                    <p class="text-slate-400 text-sm">Calculate absolute contract sponsorships and programmatic ad payout metrics optimized for Tier 1 geographical vectors.</p>
-                </div>
+    <!-- Structural AdSense Verification Asset (Top Banner) -->
+    <div class="ads-banner">
+        <div class="ads-box">[Active Programmatic AdSense Display Slot Node]</div>
+    </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Form Controls Layout -->
-                    <div class="space-y-6">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Content Platform Target</label>
-                            <select id="platform" class="w-full bg-[#090d16] border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 transition">
+    <!-- Main Workspace Application -->
+    <main class="workspace-grid">
+        
+        <!-- Left Workspace Section (Calculator and Copy Blocks) -->
+        <div>
+            <div class="main-card">
+                <h1>Creator Value Forecasting Engine</h1>
+                <p class="subtitle">Calculate verified corporate sponsorship ask valuations and programmatic multi-platform ad monetization tiers adjusted for Tier 1 geographical viewer demographics.</p>
+                
+                <div class="calc-split">
+                    <!-- Form Interactive Controllers -->
+                    <div>
+                        <div class="input-group">
+                            <label>Target Distribution Platform</label>
+                            <select id="platform">
                                 <option value="youtube">YouTube Hub (Premium Longform)</option>
-                                <option value="vertical">TikTok / Shorts (Vertical Mobile Feed)</option>
+                                <option value="vertical">TikTok / Shorts (Vertical Feed)</option>
                                 <option value="twitch">Twitch Stream (Live Broadcast)</option>
                             </select>
                         </div>
 
-                        <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <label class="block text-xs font-bold uppercase tracking-widest text-slate-400">Projected Views (Per Video)</label>
-                                <span id="viewsValueDisplay" class="text-sm font-extrabold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded font-mono">100,000</span>
+                        <div class="input-group">
+                            <div class="slider-header">
+                                <label>Average Views Per Post</label>
+                                <span class="slider-val" id="viewsDisplay">100,000</span>
                             </div>
-                            <input type="range" id="viewsSlider" min="5000" max="1000000" step="5000" value="100000" class="w-full h-2 bg-[#090d16] rounded-lg appearance-none cursor-pointer accent-cyan-400">
+                            <input type="range" id="viewsSlider" min="5000" max="1000000" step="5000" value="100000">
                         </div>
 
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Audience Location Weight</label>
-                            <select id="tierWeight" class="w-full bg-[#090d16] border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 transition">
-                                <option value="1.65">United States / Canada Hubs (Maximum Revenue)</option>
+                        <div class="input-group">
+                            <label>Audience Geographic Core</label>
+                            <select id="tierWeight">
+                                <option value="1.65">United States / Canada (Premium Max RPM)</option>
                                 <option value="1.35">United Kingdom / Australia Corridors</option>
-                                <option value="1.00">North & Western Europe Base Profiles</option>
+                                <option value="1.00">North & Western Europe Standards</option>
                             </select>
                         </div>
 
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Commercial Niche Vertical</label>
-                            <select id="niche" class="w-full bg-[#090d16] border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 transition">
-                                <option value="55">FinTech, Web3 Capital & Crypto Slabs ($55 Base)</option>
-                                <option value="38">SaaS Business Enterprise, AI Tech ($38 Base)</option>
-                                <option value="22">Lifestyle Management, Fitness & Apparel ($22 Base)</option>
-                                <option value="12">eSports & Digital Entertainment ($12 Base)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Output Interactive Yield Card -->
-                    <div class="bg-[#090d16] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-inner">
-                        <div class="space-y-6">
-                            <div class="pb-5 border-b border-slate-800">
-                                <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-1">Recommended Sponsorship Ask</span>
-                                <div class="text-4xl font-black text-emerald-400 tracking-tight" id="brandRateDisplay">$0.00</div>
-                                <p class="text-[11px] text-slate-400 mt-1.5 leading-normal">Optimized contractual starting invoice value tailored for corporate business procurement teams.</p>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block mb-1">Calculated RPM</span>
-                                    <div class="text-lg font-black text-white font-mono" id="rpmDisplay">$0.00</div>
-                                </div>
-                                <div>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block mb-1">Est. Monthly Ad Share</span>
-                                    <div class="text-lg font-black text-white font-mono" id="monthlyCapDisplay">$0.00</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 space-y-1.5">
-                            <div class="flex justify-between text-[10px] uppercase font-bold text-slate-500">
-                                <span>Yield Performance Status</span>
-                                <span id="yieldPercentageText" class="text-cyan-400">65% Optimal</span>
-                            </div>
-                            <div class="w-full bg-[#111726] h-1.5 rounded-full overflow-hidden border border-slate-800">
-                                <div id="yieldBar" class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300" style="width: 65%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Documentation Framework to clear AdSense audits -->
-            <article class="bg-[#111726]/60 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4 text-sm text-slate-400 leading-relaxed shadow-xl">
-                <h2 class="text-xl font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">Analytical Framework & Demographic Calibration Variables</h2>
-                <p>Formulating structural payout metrics across digital channel environments requires strict calculation rules. The platform algorithms mapped inside the <strong>lyncalco</strong> engine evaluate demographic weight tiers against verified commercial category metrics to protect overall valuation accuracy variables.</p>
-                <p>Cost Per Mille (CPM) constitutes the gross base spend budget allocation profiles set by enterprise corporate ad desks. However, net payouts are directly controlled by user geographical parameters. Audiences sitting within premium North American infrastructure hubs command significantly accelerated transactional value metrics compared to base global indexes.</p>
-            </article>
-        </div>
-
-        <!-- Sidebar Right Column -->
-        <div class="space-y-6">
-            <div class="bg-[#111726] border border-slate-800 rounded-2xl p-5 text-center shadow-lg">
-                <span class="text-[10px] text-slate-600 font-extrabold uppercase tracking-widest block mb-2">Programmatic Display Pipeline Slot</span>
-                <div class="min-h-[250px] flex items-center justify-center text-xs text-slate-500 bg-[#090d16] rounded-xl p-4 border border-dashed border-slate-800">
-                    [System Sidebar Active Placement Box Node]
-                </div>
-            </div>
-
-            <div class="bg-[#111726]/60 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
+                        <div class="input-group">
+                            <label>Commercial Category Vertical</label>
+                            <select id="niche">
+                                <option value="55">FinTech, Business & Crypto ($55 Base CPM)</option>
+                                <option value="38">SaaS Software, Tech & AI ($38 Base CPM)</option>
