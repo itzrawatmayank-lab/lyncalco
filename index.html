@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyncalco | Elite Creator Brand Deal & RPM Valuation Engine</title>
+    <meta name="description" content="The definitive programmatic calculator for global creators tracking Tier 1 sponsorship rates, ad monetization slabs, and cross-platform campaign yields.">
+    <!-- Tailwind CSS for high-speed style rendering -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* Custom animated gradient glow backgrounds */
+        .glow-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- Glowing Background Anchors -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] glow-bg pointer-events-none z-0"></div>
+    <div class="fixed bottom-0 right-1/4 w-[600px] h-[600px] glow-bg pointer-events-none z-0"></div>
+
+    <!-- Navigation Header Area -->
+    <header class="border-b border-slate-800/60 bg-[#090d16]/70 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3 group cursor-pointer">
+                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-cyan-400 via-cyan-500 to-blue-600 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg shadow-cyan-500/20 transform group-hover:scale-105 transition-all">L</div>
+                <span class="text-2xl font-black tracking-tight text-white">lyn<span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">calco</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-400">
+                <a href="#engine" class="hover:text-cyan-400 transition-colors">Valuation Engine</a>
+                <a href="#metrics-breakdown" class="hover:text-cyan-400 transition-colors">Slab Standards</a>
+                <a href="#documentation" class="hover:text-cyan-400 transition-colors">Core Methodology</a>
+            </nav>
+            <span class="bg-cyan-500/10 text-cyan-400 text-xs px-3.5 py-2 rounded-full font-bold border border-cyan-500/20 tracking-wider uppercase shadow-inner shadow-cyan-500/5">Tier-1 Platform Engine</span>
+        </div>
+    </header>
+
+    <!-- Structural AdSense Verification Unit (Header Slot) -->
+    <div class="max-w-6xl mx-auto w-full px-6 mt-6 z-10 relative">
+        <div class="bg-[#111726] border border-slate-800/80 rounded-2xl p-4 text-center">
+            <span class="text-[10px] text-slate-500 font-extrabold uppercase tracking-widest block mb-1">Contextual Native Integration Space</span>
+            <div class="min-h-[40px] flex items-center justify-center text-xs text-slate-400 bg-[#090d16]/60 rounded-xl p-3 border border-dashed border-slate-800/80">
+                <!-- ADSENSE RESPONSIBLE PLACEMENT SCRIPT INSERTS HERE AFTER SYSTEM AUDIT -->
+                [Programmatic Display Element Pipeline — Active AdSense Banner Configuration Node]
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Workspace Dashboard Layout -->
+    <main id="engine" class="max-w-6xl mx-auto w-full px-6 py-8 flex-grow grid grid-cols-1 lg:grid-cols-3 gap-8 z-10 relative">
+        
+        <!-- Left Dashboard Configurator Panel (2 Columns Width) -->
+        <div class="lg:col-span-2 space-y-8">
+            <div class="bg-[#111726]/80 border border-slate-800/80 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-md relative group hover:border-slate-700/60 transition-all duration-300">
+                <div class="mb-8">
+                    <div class="inline-flex items-center space-x-2 bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full text-xs font-bold mb-3 border border-cyan-500/20">
+                        <span class="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span>V2.6 Dynamic Calibration Engine</span>
+                    </div>
+                    <h1 class="text-3xl font-extrabold text-white tracking-tight mb-2">Tier 1 Creator Value Forecasting Engine</h1>
+                    <p class="text-slate-400 text-sm leading-relaxed">Calculate absolute corporate contract sponsorship asks and dynamic programmatic ad payout scales across North American and Western European target vectors.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Form Controls Layout -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Content Platform Target</label>
+                            <select id="platform" class="w-full bg-[#090d16] border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/10 transition duration-200 cursor-pointer">
+                                <option value="youtube">YouTube Hub (Premium Longform)</option>
+                                <option value="vertical">TikTok / YouTube Shorts (Vertical Web)</option>
+                                <option value="twitch">Twitch Stream (Live Broadcast Feed)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-slate-400">Projected Views (Per Video)</label>
+                                <span id="viewsValueDisplay" class="text-sm font-extrabold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/10 font-mono">100,000</span>
+                            </div>
+                            <!-- Highly Interactive Slider Control -->
+                            <input type="range" id="viewsSlider" min="5000" max="1000000" step="5000" value="100000" class="w-full h-2 bg-[#090d16] rounded-lg appearance-none cursor-pointer accent-cyan-400 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Audience Demographic Tier Density</label>
+                            <select id="tierWeight" class="w-full bg-[#090d16] border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/10 transition duration-200 cursor-pointer">
+                                <option value="1.65">United States / Canada Hubs (Maximum CPM Yield)</option>
+                                <option value="1.35">United Kingdom / Australia Premium Corridors</option>
+                                <option value="1.00">North & Western Europe Base Demographics</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Commercial Niche / Vertical Category</label>
+                            <select id="niche" class="w-full bg-[#090d16] border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/10 transition duration-200 cursor-pointer">
+                                <option value="55">FinTech, Web3 Capital & Crypto Slabs ($55 Base)</option>
+                                <option value="38">SaaS Business Enterprise, AI Tech & Systems ($38 Base)</option>
+                                <option value="22">Lifestyle Management, Fitness & Retail Growth ($22 Base)</option>
+                                <option value="12">Interactive eSports & Digital Entertainment ($12 Base)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Output Interactive Yield Card -->
+                    <div class="bg-[#090d16]/90 border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between shadow-inner relative overflow-hidden group-hover:border-cyan-500/20 transition-all duration-300">
+                        <div class="space-y-6">
+                            <div class="pb-5 border-b border-slate-800/80">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-1">Recommended Sponsorship Ask</span>
+                                <div class="text-4xl font-black text-emerald-400 tracking-tight drop-shadow-[0_4px_12px_rgba(52,211,153,0.15)] transition-all duration-200" id="brandRateDisplay">$0.00</div>
+                                <p class="text-[11px] text-slate-400 mt-1.5 leading-normal">Optimized contractual starting invoice value tailored for corporate business procurement teams.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 block mb-1">Calculated RPM</span>
+                                    <div class="text-lg font-black text-white font-mono" id="rpmDisplay">$0.00</div>
+                                </div>
+                                <div>
