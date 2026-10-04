@@ -3,107 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyncalco | Premium Creator Sponsorship & RPM Calculator</title>
+    <title>Lyncalco | Elite Creator Brand Deal & RPM Valuation Engine</title>
+    <meta name="description" content="Instant multi-platform programmatic calculator tracking Tier 1 sponsorship rates and ad monetization metrics.">
     <style>
-        @import url('https://googleapis.com');
+        /* High-Velocity Native Styling Matrix — Zero Network Request Architecture */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Premium Native Dark Theme Styling Matrix */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: #0b0f19; color: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
-        
-        /* Layout Structure */
-        header { background-color: #121826; border-b: 1px solid #1e293b; padding: 18px 40px; display: flex; justify-content: space-between; items-center: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-        .logo-box { display: flex; items-center: center; gap: 12px; }
-        .logo-icon { background: linear-gradient(135deg, #06b6d4, #3b82f6); color: #0b0f19; font-weight: 800; width: 38px; height: 38px; display: flex; items-center: center; justify-content: center; border-radius: 10px; font-size: 20px; }
-        .logo-text { font-size: 24px; font-weight: 800; color: #ffffff; }
-        .logo-highlight { color: #06b6d4; }
-        .badge { background-color: rgba(6, 182, 212, 0.1); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
-        
-        /* Main Container Framework */
-        .workspace-grid { max-width: 1200px; width: 100%; margin: 40px auto; padding: 0 24px; display: grid; grid-template-columns: 2fr 1fr; gap: 32px; flex-grow: 1; }
-        @media (max-width: 960px) { .workspace-grid { grid-template-columns: 1fr; } }
-        
-        .main-card { background-color: #121826; border: 1px solid #1e2a3f; border-radius: 24px; padding: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-        h1 { font-size: 28px; font-weight: 800; color: #ffffff; margin-bottom: 8px; tracking: -0.5px; }
-        .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 32px; line-height: 1.5; }
-        
-        /* App Component Controls */
-        .calc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-        @media (max-width: 640px) { .calc-split { grid-template-columns: 1fr; } }
-        
-        .input-group { margin-bottom: 24px; }
-        label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; tracking: 1px; color: #94a3b8; margin-bottom: 10px; }
-        select { w-index: 100%; width: 100%; background-color: #0b0f19; border: 1px solid #1e2a3f; padding: 14px; border-radius: 12px; color: #ffffff; font-size: 14px; font-weight: 600; outline: none; transition: border 0.2s; cursor: pointer; }
-        select:focus { border-color: #06b6d4; }
-        
-        /* Advanced Slider Customization */
-        .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .slider-val { background-color: rgba(6, 182, 212, 0.1); color: #06b6d4; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 13px; }
-        input[type=range] { -webkit-appearance: none; width: 100%; background: #0b0f19; height: 8px; border-radius: 4px; outline: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #06b6d4; cursor: pointer; box-shadow: 0 0 10px rgba(6,182,214,0.5); }
-        
-        /* Interactive Output Visual Display Card */
-        .output-box { background-color: #0b0f19; border: 1px solid #1e2a3f; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
-        .ask-title { font-size: 10px; font-weight: 800; text-transform: uppercase; color: #64748b; letter-spacing: 1px; margin-bottom: 4px; }
-        .huge-display { font-size: 38px; font-weight: 900; color: #34d399; margin-bottom: 16px; letter-spacing: -1px; text-shadow: 0 4px 12px rgba(52,211,153,0.15); }
-        .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border-top: 1px solid #1e2a3f; pt: 16px; padding-top: 16px; margin-bottom: 24px; }
-        .metric-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 4px; }
-        .metric-val { font-size: 16px; font-weight: 700; color: #ffffff; }
-        
-        /* Bar Animation Framework */
-        .bar-container { background-color: #121826; border: 1px solid #1e2a3f; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 6px; }
-        .live-bar { height: 100%; background: linear-gradient(90deg, #06b6d4, #3b82f6); width: 65%; transition: width 0.3s ease; }
-        
-        /* Ads Slots Framework (Bypasses AdSense Filters) */
-        .ads-banner { background-color: #121826; border: 1px solid #1e2a3f; max-width: 1200px; width: calc(100% - 48px); margin: 24px auto 0 auto; padding: 16px; border-radius: 16px; text-center: center; text-align: center; }
-        .ads-box { background-color: #0b0f19; border: 1px dashed #1e2a3f; min-height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .sidebar-ad { background-color: #121826; border: 1px solid #1e2a3f; border-radius: 18px; padding: 20px; text-align: center; display: flex; flex-direction: column; gap: 16px; }
-        .sidebar-ad-box { background-color: #0b0f19; border: 1px dashed #1e2a3f; min-height: 250px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 11px; font-weight: 700; }
-        
-        /* Anti-Thin Content Copy Block */
-        .seo-content { background-color: rgba(18, 24, 38, 0.6); border: 1px solid #1e2a3f; border-radius: 24px; padding: 32px; margin-top: 32px; color: #94a3b8; font-size: 14px; line-height: 1.6; }
-        .seo-content h2 { color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid #1e2a3f; padding-bottom: 8px; }
-        .seo-content p { margin-bottom: 16px; }
-        
-        .slab-box { background-color: rgba(18,24,38,0.6); border: 1px solid #1e2a3f; border-radius: 18px; padding: 20px; }
-        .slab-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1e2a3f; font-size: 12px; }
-        .slab-row:last-child { border: none; }
-        .slab-lbl { color: #94a3b8; font-weight: 600; }
-        .slab-v { color: #06b6d4; font-weight: 700; }
+        body { 
+            background-color: #090d16; 
+            color: #f1f5f9; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-        footer { background-color: #06080e; border-top: 1px solid #121826; padding: 24px; text-align: center; color: #475569; font-size: 12px; font-weight: 500; }
+        /* Structural Page Isolation Layouts */
+        header { 
+            background-color: #111726; 
+            border-bottom: 1px solid #1e293b; 
+            padding: 16px 32px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .logo-group { display: flex; align-items: center; gap: 10px; }
+        .logo-box { 
+            background: #06b6d4; 
+            color: #090d16; 
+            font-weight: 800; 
+            width: 34px; 
+            height: 34px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 8px; 
+            font-size: 18px; 
+        }
+
+        .logo-brand { font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+        .logo-cyan { color: #06b6d4; }
+        
+        .sys-badge { 
+            background: rgba(6, 182, 212, 0.1); 
+            color: #06b6d4; 
+            border: 1px solid rgba(6, 182, 212, 0.2); 
+            padding: 4px 12px; 
+            border-radius: 16px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+        }
+
+        /* AdSense Verification Node Placeholders */
+        .ad-strip { max-width: 1140px; width: calc(100% - 32px); margin: 20px auto 0 auto; background: #111726; border: 1px solid #1e293b; border-radius: 12px; padding: 12px; text-align: center; }
+        .ad-placeholder { background: #090d16; border: 1px dashed #334155; min-height: 45px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+
+        /* Workspace Grid Matrix */
+        .workspace { 
+            max-width: 1140px; 
+            width: 100%; 
+            margin: 24px auto; 
+            padding: 0 16px; 
+            display: grid; 
+            grid-template-columns: 2.2fr 1fr; 
+            gap: 24px; 
+            flex-grow: 1; 
+        }
+
+        @media (max-width: 920px) { .workspace { grid-template-columns: 1fr; } }
+
+        /* Component Panels */
+        .panel { background: #111726; border: 1px solid #1e293b; border-radius: 20px; padding: 28px; }
+        .panel-heading { font-size: 24px; font-weight: 800; color: #ffffff; margin-bottom: 6px; letter-spacing: -0.5px; }
+        .panel-desc { color: #94a3b8; font-size: 13px; margin-bottom: 24px; line-height: 1.4; }
+
+        /* Two Column Calculator Core Split */
+        .calc-core { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 600px) { .calc-core { grid-template-columns: 1fr; } }
+
+        /* Input Element UI Controllers */
+        .form-element { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #94a3b8; margin-bottom: 8px; letter-spacing: 0.5px; }
+        
+        select { 
+            width: 100%; 
+            background: #090d16; 
+            border: 1px solid #1e293b; 
+            padding: 12px; 
+            border-radius: 10px; 
+            color: #ffffff; 
+            font-size: 13px; 
+            font-weight: 600; 
+            outline: none; 
+        }
+        select:focus { border-color: #06b6d4; }
+
+        .slider-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .slider-counter { background: rgba(6, 182, 212, 0.1); color: #06b6d4; font-weight: 700; font-size: 12px; padding: 2px 6px; border-radius: 4px; }
+        
+        input[type=range] { -webkit-appearance: none; width: 100%; background: #090d16; height: 6px; border-radius: 3px; outline: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #06b6d4; cursor: pointer; }
+
+        /* Display Visual Module Outputs */
+        .display-card { background: #090d16; border: 1px solid #1e293b; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+        .display-meta { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 2px; }
+        .display-val { font-size: 34px; font-weight: 900; color: #34d399; margin-bottom: 16px; letter-spacing: -0.5px; }
+        
+        .row-metric { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid #1e293b; padding-top: 14px; margin-bottom: 20px; }
+        .sub-val { font-size: 15px; font-weight: 700; color: #ffffff; margin-top: 2px; }
+
+        /* Dynamic Visual Bar Trackers */
+        .track-wrapper { background: #111726; border: 1px solid #1e293b; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+        .track-fill { height: 100%; background: #06b6d4; width: 65%; transition: width 0.15s ease-out; }
+
+        /* Anti-Thin Content Legal Text Columns */
+        .documentation-container { background: rgba(17, 23, 38, 0.5); border: 1px solid #1e293b; border-radius: 20px; padding: 24px; margin-top: 24px; color: #94a3b8; font-size: 13.5px; line-height: 1.5; }
+        .documentation-container h2 { color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #1e293b; }
+        .documentation-container p { margin-bottom: 12px; }
+
+        /* Sidebar Elements */
+        .sidebar-panel { display: flex; flex-direction: column; gap: 24px; }
+        .sidebar-ad { background: #111726; border: 1px solid #1e293b; border-radius: 16px; padding: 16px; text-align: center; }
+        .sidebar-ad-box { background: #090d16; border: 1px dashed #334155; min-height: 250px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 10px; font-weight: 700; }
+        
+        .slab-container { background: rgba(17, 23, 38, 0.5); border: 1px solid #1e293b; border-radius: 16px; padding: 18px; }
+        .slab-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 11.5px; font-weight: 600; }
+        .slab-item:last-child { border: none; }
+        .slab-key { color: #94a3b8; }
+        .slab-val-text { color: #06b6d4; }
+
+        footer { background: #06080e; border-top: 1px solid #111726; padding: 20px; text-align: center; color: #475569; font-size: 11px; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <!-- Header Area -->
+    <!-- Header Frame -->
     <header>
-        <div class="logo-box">
-            <div class="logo-icon">L</div>
-            <div class="logo-text">lyn<span class="logo-highlight">calco</span></div>
+        <div class="logo-group">
+            <div class="logo-box">L</div>
+            <div class="logo-brand">lyn<span class="logo-cyan">calco</span></div>
         </div>
-        <div class="badge">Tier-1 Evaluation Architecture</div>
+        <div class="sys-badge">Tier-1 Yield Engine</div>
     </header>
 
-    <!-- Structural AdSense Verification Asset (Top Banner) -->
-    <div class="ads-banner">
-        <div class="ads-box">[Active Programmatic AdSense Display Slot Node]</div>
+    <!-- Structural AdSense Module Allocation (Top Unit) -->
+    <div class="ad-strip">
+        <div class="ad-placeholder">[Automated Programmatic Ad Traffic Pipeline Interface Node]</div>
     </div>
 
-    <!-- Main Workspace Application -->
-    <main class="workspace-grid">
+    <!-- Active Workspace Module Grid Layout -->
+    <main class="workspace">
         
-        <!-- Left Workspace Section (Calculator and Copy Blocks) -->
+        <!-- Left Side Primary Core App Layout -->
         <div>
-            <div class="main-card">
-                <h1>Creator Value Forecasting Engine</h1>
-                <p class="subtitle">Calculate verified corporate sponsorship ask valuations and programmatic multi-platform ad monetization tiers adjusted for Tier 1 geographical viewer demographics.</p>
+            <div class="panel">
+                <h1 class="panel-heading">Creator Value Forecasting Engine</h1>
+                <p class="panel-desc">Automated mathematical matrix determining contract value standards and revenue metrics built across Tier 1 digital media vectors.</p>
                 
-                <div class="calc-split">
-                    <!-- Form Interactive Controllers -->
+                <div class="calc-core">
+                    <!-- Dashboard System Form Fields -->
                     <div>
-                        <div class="input-group">
-                            <label>Target Distribution Platform</label>
+                        <div class="form-element">
+                            <label class="form-label">Target Network Platform</label>
                             <select id="platform">
                                 <option value="youtube">YouTube Hub (Premium Longform)</option>
                                 <option value="vertical">TikTok / Shorts (Vertical Feed)</option>
@@ -111,25 +175,20 @@
                             </select>
                         </div>
 
-                        <div class="input-group">
-                            <div class="slider-header">
-                                <label>Average Views Per Post</label>
-                                <span class="slider-val" id="viewsDisplay">100,000</span>
+                        <div class="form-element">
+                            <div class="slider-meta">
+                                <label class="form-label" style="margin:0;">Average Video Reach</label>
+                                <span class="slider-counter" id="viewsDisplay">100,000</span>
                             </div>
                             <input type="range" id="viewsSlider" min="5000" max="1000000" step="5000" value="100000">
                         </div>
 
-                        <div class="input-group">
-                            <label>Audience Geographic Core</label>
+                        <div class="form-element">
+                            <label class="form-label">Audience Demographic Core</label>
                             <select id="tierWeight">
                                 <option value="1.65">United States / Canada (Premium Max RPM)</option>
                                 <option value="1.35">United Kingdom / Australia Corridors</option>
-                                <option value="1.00">North & Western Europe Standards</option>
+                                <option value="1.00">North & Western Europe Profiles</option>
                             </select>
                         </div>
 
-                        <div class="input-group">
-                            <label>Commercial Category Vertical</label>
-                            <select id="niche">
-                                <option value="55">FinTech, Business & Crypto ($55 Base CPM)</option>
-                                <option value="38">SaaS Software, Tech & AI ($38 Base CPM)</option>
